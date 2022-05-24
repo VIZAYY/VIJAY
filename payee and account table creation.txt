@@ -1,0 +1,25 @@
+create table account
+  ( 
+    account_no number primary key,
+    account_name varchar2(30) not null,
+    email varchar2(30) not null unique,	
+    account_balance number,
+    password varchar2(30) not null
+);
+ create table payee
+  ( 
+    payee_account_no number, 
+    payee_name varchar2(30) not null,
+    payee_nick_name varchar2(10) not null,
+    payee_limit number not null,
+    acc_ref number not null references account 
+   );
+	
+insert into account values('111','vijay','vijay@nomail.com','25000','Pwd@1');
+insert into account values('112','vizay','vizay@nomail.com','20000','Pwd@1');
+
+
+insert into payee values('201','sandhya','san','25000','111');
+insert into payee values('202','Abhiram','Abhi','25000','111');
+insert into payee values('112','vizay','viz','2500','111');
+insert into payee values('999','PMCARES','PM','20000','112');
